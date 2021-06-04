@@ -1,0 +1,47 @@
+@import "@/presentation/styles/colors.module.scss";
+
+.container {
+  display: flex;
+  flex-flow: column;
+  z-index: 1039;
+  height: 100vh;
+  width: 220px;
+  position: relative;
+  background-color: $grayLight;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.menuText {
+  font-size: 14px;
+  font-weight: normal;
+  color: $textDark;
+}
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 26px;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  border-radius: 6px;
+
+  &:hover {
+    background-color: $grayMedium;
+  }
+}
+
+.isPath {
+  background-color: $grayMedium !important;
+}
+
+.left {
+  padding-left: 8px;
+}
+
+.right {
+  padding-left: 8px;
+}

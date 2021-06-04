@@ -1,0 +1,52 @@
+@import "@/presentation/styles/colors.module.scss";
+
+.container {
+  height: 200px;
+  position: relative;
+  background: #FFF;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 15px;
+  box-shadow: 0 1px 4px 0 rgb(211, 214, 214);
+  margin: 15px 15px 0px 15px;
+  cursor: grab;
+
+  header {
+    position: absolute;
+    top: -22px;
+    left: 15px;
+  }
+  p {
+    color:$textDark;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+  }
+
+  h4{
+    color:$textDark;
+    font-size: 14px;
+  }
+  span{
+    font-size:10px;
+    padding-left: 5px;
+  }
+
+
+  &:hover{
+    background:$grayLight2;
+  }
+}
+
+
+.responsibleContainer{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.img{
+  height:30px;
+  border-radius: 50%;
+  border: 2px solid $background;
+  margin-right: 5px;;
+}

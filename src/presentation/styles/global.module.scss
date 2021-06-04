@@ -1,0 +1,42 @@
+@import "./colors.module.scss";
+
+@font-face {
+  font-family: gotham;
+  font-display: swap;
+  src: url(https://d283bvraeeg3dm.cloudfront.net/fonts/gotham/Gotham-Book.otf)
+    format("opentype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background: $background;
+  font-family: "gotham";
+  color: $textLight;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+#root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 18px;
+  color: $textDark;
+}
+
+ul {
+  list-style: none;
+}

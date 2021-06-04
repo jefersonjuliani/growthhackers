@@ -1,0 +1,13 @@
+.container {
+  padding:30px;
+  height: 100vh;
+  width:calc(100% - 220px);
+
+
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+}

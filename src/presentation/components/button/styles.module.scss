@@ -1,0 +1,16 @@
+@import "@/presentation/styles/colors.module.scss";
+
+.button{
+  background-color: $button !important;
+  height: 30px !important;
+  width: 100% !important;
+  border-radius: 5px !important; 
+  color: $textLight !important; 
+  font-size: 14px;
+  cursor: pointer; 
+
+
+  &:hover{
+    background-color: $grayMedium !important;
+  }
+}

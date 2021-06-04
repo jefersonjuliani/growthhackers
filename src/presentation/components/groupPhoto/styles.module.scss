@@ -1,0 +1,9 @@
+@import "../../styles/colors.module.scss";
+
+
+.img{
+  height:30px;
+  border-radius: 50%;
+  border: 2px solid $background;
+  margin-left: -5px;;
+}

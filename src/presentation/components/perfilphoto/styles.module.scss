@@ -1,0 +1,48 @@
+@import "../../styles/colors.module.scss";
+
+.container{
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.textContainer{
+  padding-left:10px;
+}
+
+.photoContainer{
+  position: relative !important;
+}
+
+.photoPosition{
+  position: absolute !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.expandContainer{
+  display: flex;
+  justify-content: flex-end
+}
+
+.img{
+  height:40px;
+  border-radius: 50%;
+}
+
+.expandImg{
+  height:15px;
+}
+
+.name{
+  font-size: 15px !important;
+  color: $textDark;
+  font-weight: normal !important;
+  padding-bottom: 3px;
+}
+
+.subtitle{
+  font-size: 13px !important;
+  color: $textLight;
+  font-weight: normal !important;
+}

@@ -1,0 +1,48 @@
+@import "../../styles/colors.module.scss";
+
+.container{
+  display: flex;
+  height:28px;
+  width:28px;
+  border-radius: 50%;
+  margin-left: -5px;
+  justify-content: center;
+  align-items: center;
+
+
+  span{
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.red{
+  background-color:  $redLight;
+  border: 1px solid $redMedium;
+}
+
+.yellow{
+  background-color:  $yellowLight;
+  border: 1px solid $yellowMedium;
+}
+
+.blue{
+  background-color:  $blueLight;
+  border: 1px solid $blueMedium;
+}
+
+
+.redText{
+  color: $redMedium;
+}
+
+.yellowText{
+
+  color: $yellowMedium;
+}
+
+.blueText{
+  color: $blueMedium;
+}
+
+
