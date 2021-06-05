@@ -29,6 +29,8 @@
 
   border-radius: 6px;
 
+  text-decoration: none;
+
   &:hover {
     background-color: $grayMedium;
   }
@@ -44,4 +46,16 @@
 
 .right {
   padding-left: 8px;
+}
+
+
+.mv{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+
+.center{
+  justify-content: center;
+  align-items: center;
 }

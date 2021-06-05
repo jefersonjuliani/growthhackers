@@ -4,6 +4,28 @@
   position: relative;
 }
 
+@import "@/presentation/styles/colors.module.scss";
+
+.menuLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 26px;
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  justify-content: center;
+  
+  &:hover {
+    background-color: $grayMedium;
+  }
+}
+
 .container img {
   position: absolute;
   height: 14px;

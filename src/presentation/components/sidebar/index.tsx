@@ -1,31 +1,37 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useOnClick from "@/presentation/hooks/useOnClick"
 import { Link, useLocation } from 'react-router-dom';
 import Routes from '@/main/routes/main.routes';
 import routeInterface from '@/main/routes/interface/routeInterface';
 
-import { Row, Perfilphoto } from "@/presentation/components"
+import { Row, Perfilphoto, ExpandButton } from "@/presentation/components"
 
 import Styles from "./styles.module.scss"
 
 import MakeSearchInput from "@/main/factories/components/searchInput-factory"
 
-
 const Sidebar: React.FC = () => {
     const [path, setPath] = useState('');
+    const [expand, setExpand] = useState(true);
 
     const location = useLocation();
+    const node = useRef<HTMLDivElement>(null);
+    useOnClick(node, (event) => setExpand(old => !old));
 
     //get the path name
     useEffect(() => {
         setPath(location.pathname)
     }, [location]);
 
+
     const _renderMenu = () => {
         return Routes.map((prop: routeInterface, key) => {
             if (prop.layout === '/main') {
+
                 const isPath = path.includes(prop.path);
-                const listClasses = `${Styles.menuLink} ${isPath ? Styles.isPath : ''}`
+
+                const listClasses = `${Styles.menuLink} ${isPath ? Styles.isPath : ''} ${expand ? "" : Styles.center}`
+
                 return (
                     <Link
                         key={key}
@@ -33,19 +39,23 @@ const Sidebar: React.FC = () => {
                             pathname: `${prop.path}`,
                         }}
                         className={listClasses}
-                        style={{ textDecoration: "none" }}
                     >
                         <Row>
-                            <div className={Styles.left}>
+                            <div className={expand ? Styles.left : ""}>
                                 <img
                                     src={prop.icon}
                                     alt={prop.alt}
-                                    style={{ width: 14 }}
+                                    style={{ width: expand ? 14 : 20 }}
                                 />
                             </div>
-                            <div className={Styles.right}>
-                                <h2 className={Styles.menuText}>{prop.name}</h2>
-                            </div>
+                            {
+                                expand ? (
+                                    <div className={Styles.right}>
+                                        <h2 className={Styles.menuText}>{prop.name}</h2>
+                                    </div>
+                                ) : null
+                            }
+
                         </Row>
                     </Link>
                 );
@@ -56,13 +66,23 @@ const Sidebar: React.FC = () => {
     };
 
     return (
-        <div className={Styles.container}>
+        <div className={Styles.container} style={{ width: expand ? 220 : 100 }}>
 
-            <Perfilphoto />
+            <div className={Styles.mv}>
+                <Row start>
+
+                    <Perfilphoto isExpanded={expand} />
+
+                    <div ref={node} style={{ transform: expand ? '' : 'rotate(180deg)' }}>
+                        <ExpandButton />
+                    </div>
+
+                </Row>
+            </div>
 
             {_renderMenu()}
 
-           <MakeSearchInput />
+            <MakeSearchInput isExpanded={expand} />
 
         </div>
     );
