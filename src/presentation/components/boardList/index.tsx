@@ -2,7 +2,8 @@ import React from 'react';
 import boardListInterface from "./boardListInterface"
 import Styles from "./styles.module.scss"
 import { Droppable } from 'react-beautiful-dnd';
-import { BoardCard, Button } from "@/presentation/components"
+import { BoardCard, Button, Row } from "@/presentation/components"
+import Icon from "@/presentation/assets/index"
 
 const boardList: React.FC<boardListInterface> = ({ col }) => {
   return (
@@ -11,7 +12,11 @@ const boardList: React.FC<boardListInterface> = ({ col }) => {
         <div
           className={Styles.container}
         >
-          <h2>{col.name}</h2>
+          <Row center spaceBetween>
+            <h2>{col.name}</h2>
+            <img src={Icon.dotsIcon} alt="" width="18" />
+          </Row>
+
           <div
             className={Styles.background}
             {...provided.droppableProps}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import useOnClick from "@/presentation/hooks/useOnClick"
 import { Link, useLocation } from 'react-router-dom';
 import Routes from '@/main/routes/main.routes';
