@@ -8,6 +8,20 @@ const notificationIndicator: React.FC<notificationIndicatorInterface> = ({ numbe
 
     const listClasses = `${Styles.container} ${Styles.red}`
 
+    const firstDigit = (n: number): number => {
+        while (n >= 10)
+            n /= 10;
+        return Math.floor(n);
+    }
+
+    if (number > 99) {
+        return (
+            <div className={listClasses}>
+                <span className={Styles.redText}>{firstDigit(number)}...</span>
+            </div>
+        );
+    }
+
     if (number > 0) {
         return (
             <div className={listClasses}>
