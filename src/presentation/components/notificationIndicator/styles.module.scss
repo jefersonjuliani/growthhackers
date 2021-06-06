@@ -1,0 +1,28 @@
+@import "../../styles/colors.module.scss";
+
+.container{
+  display: flex;
+  height:18px;
+  width:18px;
+  border-radius: 50%;
+  margin-left: -5px;
+  justify-content: center;
+  align-items: center;
+
+
+  span{
+    font-size: 9px;
+    font-weight: bold;
+  }
+}
+
+.red{
+  background-color:  $redMedium;
+}
+
+.redText{
+  color: $white;
+}
+
+
+

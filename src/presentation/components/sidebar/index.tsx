@@ -9,6 +9,7 @@ import { Row, Perfilphoto, ExpandButton } from "@/presentation/components"
 import Styles from "./styles.module.scss"
 
 import MakeSearchInput from "@/main/factories/components/searchInput-factory"
+import MakeNotificationIndicator from "@/main/factories/components/notificationIndicator-factory"
 
 const Sidebar: React.FC = () => {
     const [path, setPath] = useState('');
@@ -50,9 +51,14 @@ const Sidebar: React.FC = () => {
                             </div>
                             {
                                 expand ? (
-                                    <div className={Styles.right}>
-                                        <h2 className={Styles.menuText}>{prop.name}</h2>
-                                    </div>
+                                    <>
+                                        <div className={Styles.right}>
+                                            <h2 className={Styles.menuText}>{prop.name}</h2>
+                                        </div>
+                                        <div className={Styles.right}>
+                                            <MakeNotificationIndicator menu={prop.name} />
+                                        </div>
+                                    </>
                                 ) : null
                             }
 
