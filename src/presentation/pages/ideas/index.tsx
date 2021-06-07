@@ -12,6 +12,7 @@ const Ideas: React.FC = () => {
 
   return (
     <div>
+
       <Row start spaceBetween>
         <Row center>
           <img className={Styles.img} src={Icon.ideasIcon} alt="ideas icon" />
@@ -19,10 +20,12 @@ const Ideas: React.FC = () => {
         </Row>
         <Header />
       </Row>
-      <Suspense fallback={<div>Loading... </div>}>
-        <MakeBoard />
-      </Suspense>
 
+      <div className={Styles.contentContainer}>
+        <Suspense fallback={<div>Loading... </div>}>
+          <MakeBoard />
+        </Suspense>
+      </div>
     </div>
   );
 }
