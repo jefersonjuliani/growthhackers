@@ -5,10 +5,11 @@ import { Row, Header } from "@/presentation/components"
 import Icon from "@/presentation/assets"
 import Styles from "./styles.module.scss"
 
-
 let MakeBoard = React.lazy(() => import("@/main/factories/components/board-factory"));
 
+
 const Ideas: React.FC = () => {
+
   return (
     <div>
       <Row start spaceBetween>

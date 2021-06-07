@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import useOnClick from "@/presentation/hooks/useOnClick"
 import { Link, useLocation } from 'react-router-dom';
 import Routes from '@/main/routes/main.routes';
@@ -11,13 +11,22 @@ import Styles from "./styles.module.scss"
 import MakeSearchInput from "@/main/factories/components/searchInput-factory"
 import MakeNotificationIndicator from "@/main/factories/components/notificationIndicator-factory"
 
+import Context from "@/presentation/context/"
+
 const Sidebar: React.FC = () => {
     const [path, setPath] = useState('');
     const [expand, setExpand] = useState(true);
 
+    const { dispatch } = useContext(Context)
+
     const location = useLocation();
     const node = useRef<HTMLDivElement>(null);
-    useOnClick(node, (event) => setExpand(old => !old));
+    useOnClick(node, (event) => {
+        setExpand(old => !old)
+        dispatch({ type: "EXPAND", payload:expand?"false":"true" })
+    });
+
+    
 
     //get the path name
     useEffect(() => {
@@ -89,7 +98,6 @@ const Sidebar: React.FC = () => {
             {_renderMenu()}
 
             <MakeSearchInput isExpanded={expand} />
-
         </div>
     );
 }
