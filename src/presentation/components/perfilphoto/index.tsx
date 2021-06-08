@@ -2,10 +2,14 @@ import React from 'react';
 import { Row, ProgressCircle } from "@/presentation/components"
 import perfilPhotoInterface from "./perfilPhotoInterface"
 import Pic from "@/data/img/profile.png"
-
+import useWindowDimensions from "@/presentation/hooks/useWindowDimensions"
 import Styles from "./styles.module.scss"
 
-const perfilphoto: React.FC<perfilPhotoInterface> = ({ isExpanded }) => {
+const Perfilphoto: React.FC<perfilPhotoInterface> = ({ isExpanded }) => {
+    const { width } = useWindowDimensions();
+    const show = isExpanded && width >= 768
+
+
     return (
         <div className={Styles.container}>
 
@@ -20,7 +24,7 @@ const perfilphoto: React.FC<perfilPhotoInterface> = ({ isExpanded }) => {
                 </div>
 
                 {
-                    isExpanded ? (
+                    show ? (
                         <div className={Styles.textContainer}>
                             <h3 className={Styles.name}>Nick Dahl</h3>
                             <h4 className={Styles.subtitle}>Subtitle here</h4>
@@ -35,4 +39,4 @@ const perfilphoto: React.FC<perfilPhotoInterface> = ({ isExpanded }) => {
     );
 }
 
-export default perfilphoto;
+export default Perfilphoto;

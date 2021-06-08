@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import useOnClick from "@/presentation/hooks/useOnClick"
+import useWindowDimensions from "@/presentation/hooks/useWindowDimensions"
 import { Link, useLocation } from 'react-router-dom';
 import Routes from '@/main/routes/main.routes';
 import routeInterface from '@/main/routes/interface/routeInterface';
@@ -26,6 +27,7 @@ const Sidebar: React.FC = () => {
         dispatch({ type: "EXPAND", payload:expand?"false":"true" })
     });
 
+    const { width } = useWindowDimensions();
     
 
     //get the path name
@@ -36,11 +38,14 @@ const Sidebar: React.FC = () => {
 
     const _renderMenu = () => {
         return Routes.map((prop: routeInterface, key) => {
+
+            const resize=expand && width >= 768;
+
             if (prop.layout === '/main') {
 
                 const isPath = path.includes(prop.path);
 
-                const listClasses = `${Styles.menuLink} ${isPath ? Styles.isPath : ''} ${expand ? "" : Styles.center}`
+                const listClasses = `${Styles.menuLink} ${isPath ? Styles.isPath : ''} ${resize ? "" : Styles.center}`
 
                 return (
                     <Link
@@ -51,15 +56,15 @@ const Sidebar: React.FC = () => {
                         className={listClasses}
                     >
                         <Row>
-                            <div className={expand ? Styles.left : ""}>
+                            <div className={resize ? Styles.left : ""}>
                                 <img
                                     src={prop.icon}
                                     alt={prop.alt}
-                                    style={{ width: expand ? 14 : 20 }}
+                                    style={{ width: resize ? 14 : 20 }}
                                 />
                             </div>
                             {
-                                expand ? (
+                                resize ? (
                                     <>
                                         <div className={Styles.right}>
                                             <h2 className={Styles.menuText}>{prop.name}</h2>
@@ -88,7 +93,7 @@ const Sidebar: React.FC = () => {
 
                     <Perfilphoto isExpanded={expand} />
 
-                    <div ref={node} style={{ transform: expand ? '' : 'rotate(180deg)' }}>
+                    <div className={Styles.expandButton} ref={node} style={{ transform: expand ? '' : 'rotate(180deg)' }}>
                         <ExpandButton />
                     </div>
 

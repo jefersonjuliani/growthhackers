@@ -5,12 +5,18 @@ import { Input } from "@/presentation/components"
 import Styles from "./styles.module.scss"
 import Icon from "@/presentation//assets/"
 
+import useWindowDimensions from "@/presentation/hooks/useWindowDimensions"
+
 const SearchInput: React.FC<searchInputInterface> = ({ isExpanded }) => {
     const [state, setState] = useState('');
+    const { width } = useWindowDimensions();
+
+    const resize = isExpanded && width >= 768
+
     return (
-        <div className={isExpanded ? Styles.container :Styles.menuLink }>
-            <img src={Icon.searchIcon} alt="search icon" style={{height: isExpanded? 14: 20 }}/>
-            {isExpanded ? (
+        <div className={resize ? Styles.container :Styles.menuLink }>
+            <img src={Icon.searchIcon} alt="search icon" style={{height: resize? 14: 20 }}/>
+            {resize ? (
                 <Input
                     placeholder="Search"
                     type="search"

@@ -7,3 +7,10 @@
   border: 2px solid $background;
   margin-left: -5px;;
 }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) {
+  .container {
+    display: none;
+  }
+}

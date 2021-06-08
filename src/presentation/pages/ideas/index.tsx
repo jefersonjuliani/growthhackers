@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-
+import useWindowDimensions from "@/presentation/hooks/useWindowDimensions"
 import { Row, Header } from "@/presentation/components"
 
 import Icon from "@/presentation/assets"
@@ -10,10 +10,11 @@ let MakeBoard = React.lazy(() => import("@/main/factories/components/board-facto
 
 const Ideas: React.FC = () => {
 
+  const { width } = useWindowDimensions();
+
   return (
     <div>
-
-      <Row start spaceBetween>
+      <Row start={width >= 768} spaceBetween>
         <Row center>
           <img className={Styles.img} src={Icon.ideasIcon} alt="ideas icon" />
           <h1>Ideas</h1>

@@ -1,20 +1,17 @@
 @import "../../styles/colors.module.scss";
 
-.img{
-  height:30px;
+.img {
+  height: 30px;
   padding-right: 10px;
 }
 
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991.98px) { 
-  .contentContainer{
-   
-  overflow-y: scroll;
+@media (max-width: 991.98px) {
+  .contentContainer {
+    overflow-y: scroll;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
-
-

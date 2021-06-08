@@ -11,16 +11,19 @@ const groupPhoto: React.FC = () => {
 
 
   return (
-    <Row>
-      <img className={Styles.img} src={pic1} alt="team member" />
-      <img className={Styles.img} src={pic2} alt="team member" />
-      <img className={Styles.img} src={pic3} alt="team member" />
+    <div className={Styles.container}>
+      <Row>
+        <img className={Styles.img} src={pic1} alt="team member" />
+        <img className={Styles.img} src={pic2} alt="team member" />
+        <img className={Styles.img} src={pic3} alt="team member" />
 
-      <NoPhoto name="Anna" red/>
-      <NoPhoto name="Paul" yellow/>
-      <NoPhoto name="Sussane" blue/>
-    </Row>
-  );
+        <NoPhoto name="Anna" red />
+        <NoPhoto name="Paul" yellow />
+        <NoPhoto name="Sussane" blue />
+      </Row>
+
+    </div>
+  )
 }
 
 export default groupPhoto;
