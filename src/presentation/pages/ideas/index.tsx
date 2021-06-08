@@ -14,7 +14,7 @@ const Ideas: React.FC = () => {
 
   return (
     <div>
-      <Row start={width >= 768} spaceBetween>
+      <Row start={width >= 1200} spaceBetween>
         <Row center>
           <img className={Styles.img} src={Icon.ideasIcon} alt="ideas icon" />
           <h1>Ideas</h1>
